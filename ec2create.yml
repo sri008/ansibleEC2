@@ -1,0 +1,15 @@
+# It will create ec2 
+- name: create ec2
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: copy war to tomcat machine
+      ec2:
+        key_name: Bombay
+        instance_type: t2.micro
+        image: ami-052c08d70def0ac62
+        wait: yes
+        region: ap-south-1
+        count: 1 
+        vpc_subnet_id: subnet-65e38829
+        assign_public_ip: yes
